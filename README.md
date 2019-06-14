@@ -70,6 +70,61 @@ tslint.json : typeScript 코딩 규약 설정(코드 규칙 설정)
 
 ```
 
+### 컴포넌트 생성
+```
+@Component 데코레이터를 이용하여, 컴포넌트 생성 및 컴포넌트 import 예제 코드.
+
+- Message.vue
+<template>
+    <div>
+        <input type="text" v-model="message">
+        <div>
+            {{message}}
+        </div>
+    </div>
+</template>
+
+<script lang="ts">
+    /* script 구문안에 lang 속성을 ts로 지정 */
+    /* 기본적인 vue 컴포넌트 정의 방법 */
+    import {Component, Vue} from 'vue-property-decorator';
+    @Component
+    export default class Message extends Vue {
+        public message: string = '메시지';
+    }
+</script>
+
+<style scoped>
+
+</style>
+
+- Home.vue
+<template>
+  <div class="home">
+    <img alt="Vue logo" src="../assets/logo.png">
+    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+    <Message/>
+  </div>
+</template>
+
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator';
+import HelloWorld from '@/components/HelloWorld.vue'; // @ is an alias to /src
+import Message from '@/components/Message.vue';
+
+@Component({
+  components: {
+    HelloWorld,
+    Message,
+  },
+})
+export default class Home extends Vue {}
+</script>
+
+
+```
+
+
 ---
 
 ## Project setup
