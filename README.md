@@ -70,6 +70,13 @@ tslint.json : typeScript 코딩 규약 설정(코드 규칙 설정)
 
 ```
 
+### Decorator(데코레이터)
+- 데코레이터는 함수다.
+- 코드 조각을 장식해주는 역할을 하는 특별한 선언법
+- @expression  -> 이런식으로 선언
+- runtime 때 실행이 된다.
+
+
 ### 컴포넌트 생성
 ```
 @Component 데코레이터를 이용하여, 컴포넌트 생성 및 컴포넌트 import 예제 코드.
@@ -124,8 +131,76 @@ export default class Home extends Vue {}
 
 ```
 
+### 부모컴포넌트에서 자식컴포넌트에게 Data 전달(props)
+```
+@Prop 데코레이터를 이용.
+
+- Children.vue
+<template>
+    <div>
+        부모에게 받은 메세지 : {{parentMessage}}
+        <br>
+        부모에게 받은 동적 메세지 : {{parentMessage2}}
+    </div>
+</template>
+
+<script lang="ts">
+    import {Component, Prop, Vue} from 'vue-property-decorator';
+
+    @Component
+    export default class Children extends Vue {
+        // @Prop() public parentMessage: string;
+        // Type error: Property 'parentMessage' has no initializer
+        // and is not definitely assigned in the constructor
+        @Prop() public parentMessage: string | undefined;  // 엄격모드 시, 클래스 속성은 초기화 해줘야한다.
+        @Prop() private parentMessage2!: string; // ! ?
+    }
+</script>
+
+- Home.vue
+<template>
+  <div class="home">
+    <img alt="Vue logo" src="../assets/logo.png">
+    <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+    <div>
+      <p>@Component</p>
+      <Message/>
+    </div>
+    <div>
+      <p>
+        @Prop
+      </p>
+      <Children parentMessage="부모에서 전달해준 문자열" :parentMessage2="message"/>
+    </div>
+
+  </div>
+</template>
+
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator';
+import HelloWorld from '@/components/HelloWorld.vue'; // @ is an alias to /src
+import Message from '@/components/Message.vue';
+import Children from '@/components/Children.vue';
+
+@Component({
+  components: {
+    HelloWorld,
+    Message,
+    Children,
+  },
+})
+export default class Home extends Vue {
+  public message: string = 'hello children';
+}
+
+</script>
+
+```
+
 
 ---
+
+
 
 ## Project setup
 ```
