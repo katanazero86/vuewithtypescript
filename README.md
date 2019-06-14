@@ -1,2 +1,2 @@
-# vuewithtypescript
-Vue with Typescript
+# Vue with Typescript
+- Vue with Typescript
