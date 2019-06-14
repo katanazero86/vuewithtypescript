@@ -52,6 +52,24 @@ Vue CLI v3.8.3
 
 ```
 
+### project 구성 및 구조
+```
+/node_modules : npm 으로 관리되는 모듈들이 있는 폴더
+/public : 정적인 파일들 위치
+/src : 실제 코드 및 컴포넌트들이 있는 폴더
+/src/assets : 이미지 및 CSS 같은 자원들이 있는 폴더
+/src/components : vue 공통 컴포넌트
+/src/views : : vue 화면 컴포넌트
+
+/src/main.ts : entry point.
+/src/router.ts : router 설정 파일
+/src/store.ts : vuex 설정 파일
+
+tsconfig.json : typeScript 설정 파일
+tslint.json : typeScript 코딩 규약 설정(코드 규칙 설정)
+
+```
+
 ---
 
 ## Project setup

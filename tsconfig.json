@@ -1,11 +1,11 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "es5", //빌드 결과물 JS 버전
     "module": "esnext",
-    "strict": true,
+    "strict": true, //엄격모드
     "jsx": "preserve",
     "importHelpers": true,
-    "moduleResolution": "node",
+    "moduleResolution": "node", //모듈 해석방식
     "experimentalDecorators": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
@@ -26,6 +26,7 @@
       "scripthost"
     ]
   },
+  //빌드 포함
   "include": [
     "src/**/*.ts",
     "src/**/*.tsx",
@@ -33,6 +34,7 @@
     "tests/**/*.ts",
     "tests/**/*.tsx"
   ],
+  // 빌드예외
   "exclude": [
     "node_modules"
   ]
