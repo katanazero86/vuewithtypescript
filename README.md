@@ -29,6 +29,24 @@ function sum(a: number, b: number) {
 }
 sum('x', 'y'); // error TS2345: Argument of type '"x"' is not assignable to parameter of type 'number'.
 
+```
 
+### project create
+```
+@vue/cli 설치
+vue create <app-name>
+
+Vue CLI v3.8.3
+? Please pick a preset: Manually select features
+? Check the features needed for your project: TS, Router, Vuex, Linter
+? Use class-style component syntax? Yes
+? Use Babel alongside TypeScript (required for modern mode, auto-detected polyfills, transpiling JSX)? No
+? Use history mode for router? (Requires proper server setup for index fallback in production) Yes
+? Pick a linter / formatter config: TSLint
+? Pick additional lint features: (Press <space> to select, <a> to toggle all, <i> to invert selection)Lint on save
+? Where do you prefer placing config for Babel, PostCSS, ESLint, etc.? In dedicated config files
+? Save this as a preset for future projects? No
+
+위와 같이 메뉴얼로 선택하여 구성.
 
 ```
