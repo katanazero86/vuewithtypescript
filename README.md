@@ -77,7 +77,7 @@ tslint.json : typeScript 코딩 규약 설정(코드 규칙 설정)
 - runtime 때 실행이 된다.
 
 
-### 컴포넌트 생성
+### 컴포넌트 생성(@Component)
 ```
 @Component 데코레이터를 이용하여, 컴포넌트 생성 및 컴포넌트 import 예제 코드.
 
@@ -131,7 +131,7 @@ export default class Home extends Vue {}
 
 ```
 
-### 부모컴포넌트에서 자식컴포넌트에게 Data 전달(props)
+### 부모컴포넌트에서 자식컴포넌트에게 Data 전달(props / @Prop)
 ```
 @Prop 데코레이터를 이용.
 
@@ -194,6 +194,47 @@ export default class Home extends Vue {
 }
 
 </script>
+
+```
+
+### Data 변화 감지하기(watch / @Watch)
+```
+@Watch 데코레이터 이용
+
+public cMsg: string | undefined = '';
+
+// immediate : 즉시 호출하겠다는 의미.
+// deep : object 내의 속성값까지 감시.
+// @Watch('cMsg', {immediate: true, deep: true})
+@Watch('cMsg')
+public watchAlertMsg(value: string | undefined, oldValue: string | undefined) {
+  console.log(value);
+  console.log(oldValue);
+  alert(this.alertMsg);
+}
+
+public changeMessage() {
+  this.cMsg = 'change';
+}
+
+값을 변경하면, watch 동작.
+TypeScript에서  = undefined 로 초기화 시키면 watch가 정상동작을 하지 않는다.
+
+```
+
+
+### 자식에서 부모에게 Data 전달하기(emit / @Emit)
+```
+@Emit 데코레이터 이용
+
+@Emit('passData') // 이름이 같으면, 데코레이터에 굳이 명시해주지 않아도 된다.
+public passDataToParent() {
+  return this.childNum++;
+}
+
+<Children parentMessage="부모에서 전달해준 문자열" :parentMessage2="message" v-on:passData="passDataToParent($event)"/>
+
+위와같이 사용.
 
 ```
 
