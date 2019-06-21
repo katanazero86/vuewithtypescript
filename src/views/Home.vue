@@ -25,17 +25,25 @@
       <button @click="changeMessage">메세지 변경</button>
       <div>{{cMsg}}</div>
     </div>
+    <div>
+      <p>
+        @Provide / @Inject
+      </p>
+      <InjectChild/>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
-import { Component, Vue, Watch } from 'vue-property-decorator';
+import { Component, Vue, Provide, Watch } from 'vue-property-decorator';
 import HelloWorld from '@/components/HelloWorld.vue'; // @ is an alias to /src
 import Message from '@/components/Message.vue';
 import Children from '@/components/Children.vue';
+import InjectChild from '@/components/InjectChild.vue';
 
 @Component({
   components: {
+    InjectChild,
     HelloWorld,
     Message,
     Children,
@@ -46,6 +54,7 @@ export default class Home extends Vue {
   public cMsg: string | undefined = '';
   public alertMsg: string = '변경이 감지되었습니다.';
   public receiveMessage: string | number = '';
+  @Provide('injectMessage') public provideMessage: string = 'provide/inject example'; // 부모 자식이 상태변수명이 다르므로 맵핑을 위해 데코레이터 파라미터로 inject 할 상태변수명을 작성.
 
   // immediate : 즉시 호출하겠다는 의미.
   // deep : object 내의 속성값까지 감시.
