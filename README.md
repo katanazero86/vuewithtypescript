@@ -238,6 +238,36 @@ public passDataToParent() {
 
 ```
 
+### provide/inject Data 전달하기(@Provide / @Inject)
+```
+- vue 2.2 부터 추가가 되었다.
+- 기본적으로 props 처럼 부모->자식 컴포넌트로 데이터 전달을 하기 위한 기능임.
+- inject 는 받고자 하는 속성 / provide 는 전달하고자 하는 속성을 기입한다.
+- 기본적으로 provide/inject 는 반응형(reactive)을 지원하지 않는다.
+
+* 직계 부모보다 더 상위의 부모로부터도 데이터를 주입을 받을 수 있다.
+따라서 템플릿에 속성으로 데이터 전달을 명시하는 props와는 달리 provide/inject는 데이터 흐름을 직관적으로 알 수 없고, devtools 에서도 확인할 수 없다.
+
+<div id="app">
+  <child />
+</div>
+
+<script>
+var child = {
+  inject : ['age'],
+  template: `<div>I am {{ age }} years old.</div>`
+}
+new Vue({
+  el: "#app",
+  components: { child },
+  provide: {
+    age: 20
+  },
+})
+</script>
+
+```
+
 
 ---
 
