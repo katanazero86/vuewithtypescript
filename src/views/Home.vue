@@ -31,6 +31,15 @@
       </p>
       <InjectChild/>
     </div>
+    <div>
+      <p>
+        @Model
+      </p>
+      <MyCheckbox v-model="checked"/>
+      {{checked ? '동의합니다.' : '동의하지 않습니다.'}}
+      <MyText v-model="value"/>
+      {{value}}
+    </div>
   </div>
 </template>
 
@@ -40,9 +49,13 @@ import HelloWorld from '@/components/HelloWorld.vue'; // @ is an alias to /src
 import Message from '@/components/Message.vue';
 import Children from '@/components/Children.vue';
 import InjectChild from '@/components/InjectChild.vue';
+import MyCheckbox from '@/components/MyCheckbox.vue';
+import MyText from '@/components/MyText.vue';
 
 @Component({
   components: {
+    MyText,
+    MyCheckbox,
     InjectChild,
     HelloWorld,
     Message,
@@ -54,6 +67,8 @@ export default class Home extends Vue {
   public cMsg: string | undefined = '';
   public alertMsg: string = '변경이 감지되었습니다.';
   public receiveMessage: string | number = '';
+  public checked: boolean = false;
+  public value: string = '';
   @Provide('injectMessage') public provideMessage: string = 'provide/inject example'; // 부모 자식이 상태변수명이 다르므로 맵핑을 위해 데코레이터 파라미터로 inject 할 상태변수명을 작성.
 
   // immediate : 즉시 호출하겠다는 의미.

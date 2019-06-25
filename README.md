@@ -268,6 +268,18 @@ new Vue({
 
 ```
 
+### v-model(양방향 바인딩 / @Model)
+```
+v-model : value 보조 변수 사용 / input 이벤트 사용
+
+@Model('change', {type: Boolean}) public readonly checked!: boolean;
+
+@Model('event명', {type: propType}) prop명
+
+
+```
+
+
 
 ---
 
