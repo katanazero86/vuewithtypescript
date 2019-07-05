@@ -40,6 +40,16 @@
       <MyText v-model="value"/>
       {{value}}
     </div>
+    <div>
+      <p>
+        Mixins
+      </p>
+
+        <Accordion/>
+        <Dropdown/>
+
+    </div>
+
   </div>
 </template>
 
@@ -51,9 +61,13 @@ import Children from '@/components/Children.vue';
 import InjectChild from '@/components/InjectChild.vue';
 import MyCheckbox from '@/components/MyCheckbox.vue';
 import MyText from '@/components/MyText.vue';
+import Accordion from '@/components/Accordion.vue';
+import Dropdown from '@/components/Dropdown.vue';
 
 @Component({
   components: {
+    Dropdown,
+    Accordion,
     MyText,
     MyCheckbox,
     InjectChild,

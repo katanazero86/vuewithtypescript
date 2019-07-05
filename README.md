@@ -279,6 +279,26 @@ v-model : value 보조 변수 사용 / input 이벤트 사용
 
 ```
 
+### mixins
+```
+mixins : []
+->
+
+import {Vue, Component, Mixins} from 'vue-property-decorator';
+    import Toggle from './Toggle.vue';
+
+    @Component({
+        components : {
+            Toggle,
+        },
+    })
+    export default class ToggleBtn extends Mixins(Toggle) {
+        // Mixins 헬퍼함수를 이용
+        // Mixins 최고 5개까지 지정가능
+    }
+
+```
+
 
 
 ---
