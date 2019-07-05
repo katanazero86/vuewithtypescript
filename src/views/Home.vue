@@ -49,6 +49,13 @@
         <Dropdown/>
 
     </div>
+    <div>
+      <p>
+        Event Bus
+      </p>
+      <A/>
+      <B/>
+    </div>
 
   </div>
 </template>
@@ -63,9 +70,13 @@ import MyCheckbox from '@/components/MyCheckbox.vue';
 import MyText from '@/components/MyText.vue';
 import Accordion from '@/components/Accordion.vue';
 import Dropdown from '@/components/Dropdown.vue';
+import A from '@/components/A.vue';
+import B from '@/components/B.vue';
 
 @Component({
   components: {
+    B,
+    A,
     Dropdown,
     Accordion,
     MyText,

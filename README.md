@@ -299,6 +299,24 @@ import {Vue, Component, Mixins} from 'vue-property-decorator';
 
 ```
 
+### Vuex
+```
+컴포넌트간 데이터를 전달하는방식
+1. props/emit
+2. provide/eject
+3. event bus
+
+애플리케이션 규모가 커지면 커질수록 위 방법으로는 어려움이 발생
+상태관리패턴을 고려해야함 -> Vuex
+
+state : 상태
+actions : state 변경을 알림
+mutations : state 변경
+
+
+```
+
+
 
 
 ---
