@@ -1,5 +1,5 @@
 import Vue from 'vue';
-import Vuex, {ActionContext, StoreOptions} from 'vuex';
+import Vuex, {ActionContext, Getter, GetterTree, StoreOptions} from 'vuex';
 
 
 Vue.use(Vuex);
@@ -48,6 +48,8 @@ const store: StoreOptions<State> = {
 
     getters : {
       count: (state: State) => {
+          // getter 는 state, getters 2가지 인자값을 가진다.
+          // mapGetters 를 통해서 computed 속성에 매핑도 가능하다.
           return state.count;
       },
     },
