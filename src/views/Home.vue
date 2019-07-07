@@ -56,6 +56,15 @@
       <A/>
       <B/>
     </div>
+    <div>
+      <p>
+        Vuex (store를 이용한 증가감소)
+      </p>
+      <div>
+        {{$store.getters.count}}
+      </div>
+      <Increment/>
+    </div>
 
   </div>
 </template>
@@ -72,9 +81,11 @@ import Accordion from '@/components/Accordion.vue';
 import Dropdown from '@/components/Dropdown.vue';
 import A from '@/components/A.vue';
 import B from '@/components/B.vue';
+import Increment from '@/components/Increment.vue';
 
 @Component({
   components: {
+    Increment,
     B,
     A,
     Dropdown,
