@@ -325,6 +325,9 @@ store 상태값을 변경해서 모든 컴포넌트에서 공유한다.
 여러 모듈이 동일할 actions / mutaions / getters 에 동작할 수 있다. -> 이걸 방지하기 위해서는
 namespace: true 라고 명시를 해주면 된다.
 
+vuex-module-decorator 
+vuex 데코레이터를 지원하는 라이브러리
+https://github.com/seongdohee/module-example
 
 ```
 
