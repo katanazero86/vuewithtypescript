@@ -320,7 +320,14 @@ store 상태값을 변경해서 모든 컴포넌트에서 공유한다.
 보통 콜백함수에서 변이를 시도했을때 발생(actions 에서 변이시킬라하면 발생한다)
 
 
+- Vuex Module 분리하기.
+
+
 ```
+
+ - Vuex Module 예시
+
+![VuexModule](./image/1.PNG)
 
 
 
