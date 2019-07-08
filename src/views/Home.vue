@@ -65,6 +65,20 @@
       </div>
       <Increment/>
     </div>
+    <div>
+      <p>
+        Vuex Module 예제
+      </p>
+      <div>
+        {{$store.state}}
+      </div>
+      <div>
+        <button @click="$store.commit('setData', 'changeData')">데이터 변경</button>
+        <h5>rootData / ModuleB data state가 동시에 변경이 된다. </h5>
+        <button @click="$store.commit('ModuleA/setData', 'changeDataAA')">데이터 변경2</button>
+        <h5>ModuleA 에는 namespace 가 설정이 되어있다.</h5>
+      </div>
+    </div>
 
   </div>
 </template>
@@ -115,6 +129,10 @@ export default class Home extends Vue {
     console.log(value);
     console.log(oldValue);
     alert(this.alertMsg);
+  }
+
+  public created() {
+    console.log(this.$store);
   }
 
   public changeMessage() {
