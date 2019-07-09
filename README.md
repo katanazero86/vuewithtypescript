@@ -337,10 +337,29 @@ https://github.com/seongdohee/module-example
 
 
 
+### TODO LIST App 제작
+
+![example](./image/2.PNG)
+
+```
+1. 요구사항 분석
+- all : 모든 리스트를 본다.
+- active : 체크된 리스트를 본다.
+- clear : 체크되지 않은 리스트를 본다.
+- 해야할일을 입력받을 수 있다.
+- 해야할일을 삭제할 수 있다.
+
+
+2. router 구성(URL 설계)
+3. 컴포넌트 구성
+4. 상태 관리는 어떻게?
+
+```
+
+
+
 
 ---
-
-
 
 ## Project setup
 ```
