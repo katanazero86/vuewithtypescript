@@ -11,7 +11,7 @@
 </template>
 
 <script lang="ts">
-    import {Component, Vue} from "vue-property-decorator";
+    import {Component, Vue} from 'vue-property-decorator';
 
     export default class Item extends Vue {
 
