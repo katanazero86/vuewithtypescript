@@ -6,7 +6,9 @@
         <div style="padding: 15px">
             <Header/>
             <ItemInput/>
-            <Item/>
+            <template v-if="todoData.length">
+                <Item v-for="todo in todoData" :todoItem="todo"/>
+            </template>
         </div>
     </div>
 </template>
@@ -19,10 +21,11 @@
     import Item from '@/components/todo/Item.vue';
 
     @Component({
-        components : {ItemInput, Header, Item},
+        components: {ItemInput, Header, Item},
     })
     export default class TodoList extends Vue {
 
+        public todoData: any[] = [{id: 0, title: 'test', status: 'active'}, {            id: 1,            title: 'test',            status: 'clear'        }, {id: 2, title: 'test', status: 'clear'}];
     }
 
 </script>

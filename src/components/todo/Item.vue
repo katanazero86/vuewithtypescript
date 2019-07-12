@@ -1,9 +1,9 @@
 <template>
     <div class="input-group">
       <span class="input-group-addon">
-        <input type="checkbox" @change="changeStatus">
+        <input type="checkbox" @change="changeStatus" :checked="todoItem.status == 'clear'">
       </span>
-        <input type="text" class="form-control">
+        <input type="text" class="form-control" :value="todoItem.title" readonly>
         <span class="input-group-btn">
         <button class="btn btn-default" type="button" @click="removeItem">X</button>
       </span>
@@ -11,12 +11,14 @@
 </template>
 
 <script lang="ts">
-    import {Component, Vue} from 'vue-property-decorator';
+    import {Component, Prop, Vue} from 'vue-property-decorator';
 
     export default class Item extends Vue {
 
-        public changeStatus() {
+        @Prop() public readonly todoItem!: object | undefined;
 
+        public changeStatus() {
+            console.log(this.todoItem);
         }
 
         public removeItem() {

@@ -349,8 +349,8 @@ https://github.com/seongdohee/module-example
 - 해야할일을 입력받을 수 있다.
 - 해야할일을 삭제할 수 있다.
 
-
 2. router 구성(URL 설계)
+- router.ts 설정파일을 편집
 3. 컴포넌트 구성
 4. 상태 관리는 어떻게?
 
