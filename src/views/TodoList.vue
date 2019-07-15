@@ -25,7 +25,7 @@
     })
     export default class TodoList extends Vue {
 
-        public todoData: any[] = [{id: 0, title: 'test', status: 'active'}, {            id: 1,            title: 'test',            status: 'clear'        }, {id: 2, title: 'test', status: 'clear'}];
+        public todoData: any[] = [{id: 0, title: 'test', status: 'active'}, {id: 1, title: 'test', status: 'clear'}, {id: 2, title: 'test', status: 'clear'}];
     }
 
 </script>

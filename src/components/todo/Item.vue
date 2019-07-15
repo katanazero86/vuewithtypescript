@@ -13,6 +13,7 @@
 <script lang="ts">
     import {Component, Prop, Vue} from 'vue-property-decorator';
 
+    @Component
     export default class Item extends Vue {
 
         @Prop() public readonly todoItem!: object | undefined;
