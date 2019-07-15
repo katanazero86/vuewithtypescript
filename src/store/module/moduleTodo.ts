@@ -21,8 +21,9 @@ const module: Module<ModuleTodo, RootState> = {
         updateTodo(state, todoData: object) {
 
         },
-        deleteTodo(state, todoData: object) {
-
+        deleteTodo(state, todoData: any) {
+            let findIndex = state.todoItem.findIndex((todo) => { return todo.id === todoData.id });
+            state.todoItem.splice(findIndex, 1);
         },
     },
 
@@ -34,7 +35,6 @@ const module: Module<ModuleTodo, RootState> = {
             context.commit('updateTodo', todoData);
         },
         deleteTodo(context, todoData: object) {
-            console.log('test');
             context.commit('deleteTodo', todoData);
         },
     },
