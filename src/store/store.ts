@@ -21,6 +21,9 @@ Vue.use(Vuex);
 import ModuleA from './module/moduleA';
 import ModuleB from './module/moduleB';
 
+// Vuex Todo Module
+import ModuleTodo from './module/moduleTodo';
+
 export interface RootState {
     count: number;
     data: string;
@@ -34,10 +37,12 @@ export interface RootState {
 const store: StoreOptions<RootState> = {
 
     // 엄격모드
-    strict: true,
+    // strict: true,
 
     modules: {
-        ModuleA, ModuleB,
+        ModuleA,
+        ModuleB,
+        ModuleTodo,
     },
 
     state: {

@@ -12,7 +12,14 @@
     @Component
     export default class ItemInput extends Vue {
 
-        public addItem() {
+        public addItem(e) {
+            if(e.target.value) {
+                let lastIndex = this.$store.getters.todoItem.length;
+                this.$store.commit('setTodo', {id : lastIndex, title : e.target.value, status : 'active' });
+            } else {
+                alert('할일을 입력해주세요.');
+                return false;
+            }
 
         }
 

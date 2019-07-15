@@ -8,7 +8,7 @@ interface ModuleTodo {
 
 const module: Module<ModuleTodo, RootState> = {
 
-    namespaced : true,
+    // namespaced: true,
 
     state: {
         todoItem: [],
@@ -31,16 +31,17 @@ const module: Module<ModuleTodo, RootState> = {
             context.commit('setTodo', todoData);
         },
         updateTodo(context, todoData: object) {
-
+            context.commit('updateTodo', todoData);
         },
-        deleteTodo(state, todoData: object) {
-
+        deleteTodo(context, todoData: object) {
+            console.log('test');
+            context.commit('deleteTodo', todoData);
         },
     },
 
     getters: {
         todoItem: (state, getters) => {
-            return [...state.todoItem];
+            return state.todoItem;
         },
     },
 

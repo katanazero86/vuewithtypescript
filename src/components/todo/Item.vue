@@ -5,7 +5,7 @@
       </span>
         <input type="text" class="form-control" :value="todoItem.title" readonly>
         <span class="input-group-btn">
-        <button class="btn btn-default" type="button" @click="removeItem">X</button>
+        <button class="btn btn-default" type="button" @click="removeItem(todoItem)">X</button>
       </span>
     </div>
 </template>
@@ -22,8 +22,8 @@
             console.log(this.todoItem);
         }
 
-        public removeItem() {
-
+        public removeItem(targetTodoItem) {
+            this.$store.dispatch('deleteTodo', targetTodoItem);
         }
     }
 
