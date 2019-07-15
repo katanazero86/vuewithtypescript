@@ -18,11 +18,12 @@ const module: Module<ModuleTodo, RootState> = {
         setTodo(state, todoData: object) {
             state.todoItem.push(todoData);
         },
-        updateTodo(state, todoData: object) {
-
+        updateTodo(state, todoData: any) {
+            const findeIndex = state.todoItem.findIndex((todo) => todo.id === todoData.id);
+            state.todoItem[findeIndex] = todoData;
         },
         deleteTodo(state, todoData: any) {
-            let findIndex = state.todoItem.findIndex((todo) => { return todo.id === todoData.id });
+            const findIndex = state.todoItem.findIndex((todo) => todo.id === todoData.id);
             state.todoItem.splice(findIndex, 1);
         },
     },
@@ -42,6 +43,20 @@ const module: Module<ModuleTodo, RootState> = {
     getters: {
         todoItem: (state, getters) => {
             return state.todoItem;
+        },
+        todoActiveItem: (state, getters) => {
+            return state.todoItem.filter((todo) => {
+                if (todo.status === 'active') {
+                    return todo;
+                }
+            });
+        },
+        todoClearItem: (state, getters) => {
+            return state.todoItem.filter((todo) => {
+                if (todo.status === 'clear') {
+                    return todo;
+                }
+            });
         },
     },
 

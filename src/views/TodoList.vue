@@ -14,21 +14,36 @@
 </template>
 
 <script lang="ts">
+import {Vue, Component, Watch} from 'vue-property-decorator';
+import Header from '@/components/todo/Header.vue';
+import ItemInput from '@/components/todo/ItemInput.vue';
+import Item from '@/components/todo/Item.vue';
 
-    import {Vue, Component} from 'vue-property-decorator';
-    import Header from '@/components/todo/Header.vue';
-    import ItemInput from '@/components/todo/ItemInput.vue';
-    import Item from '@/components/todo/Item.vue';
+@Component({
+    components: {ItemInput, Header, Item},
+})
+export default class TodoList extends Vue {
 
-    @Component({
-        components: {ItemInput, Header, Item},
-    })
-    export default class TodoList extends Vue {
+    // public todoData: any[] = [{id: 0, title: 'test', status: 'active'}, {id: 1, title: 'test', status: 'clear'}, {id: 2, title: 'test', status: 'clear'}];
+    public todoData: any[] = this.$store.getters.todoItem;
 
-        // public todoData: any[] = [{id: 0, title: 'test', status: 'active'}, {id: 1, title: 'test', status: 'clear'}, {id: 2, title: 'test', status: 'clear'}];
-        public todoData: any[] = this.$store.getters.todoItem;
+    @Watch('$route')
+    public watchRouteParam(after: any, before: any) {
+        if (after.params.hasOwnProperty('path')) {
+            switch (after.params.path) {
+                case 'list-active' :
+                    this.todoData = this.$store.getters.todoActiveItem;
+                    break;
+                case 'list-clear' :
+                    this.todoData = this.$store.getters.todoClearItem;
+                    break;
+            }
+        } else {
+            this.todoData = this.$store.getters.todoItem;
+        }
     }
 
+}
 </script>
 
 <style scoped>

@@ -6,26 +6,23 @@
 </template>
 
 <script lang="ts">
+import {Component, Vue} from 'vue-property-decorator';
 
-    import {Component, Vue} from 'vue-property-decorator';
+@Component
+export default class ItemInput extends Vue {
 
-    @Component
-    export default class ItemInput extends Vue {
-
-        public addItem(e) {
-            if(e.target.value.trim()) {
-                let lastIndex = this.$store.getters.todoItem.length;
-                this.$store.commit('setTodo', {id : lastIndex, title : e.target.value, status : 'active' });
-                e.target.value = '';
-            } else {
-                alert('할일을 입력해주세요.');
-                return false;
-            }
-
+    public addItem(e: any) {
+        if (e.target.value.trim()) {
+            const lastIndex = this.$store.getters.todoItem.length;
+            this.$store.commit('setTodo', {id : lastIndex, title : e.target.value, status : 'active' });
+            e.target.value = '';
+        } else {
+            alert('할일을 입력해주세요.');
+            return false;
         }
-
     }
 
+}
 </script>
 
 <style scoped>
