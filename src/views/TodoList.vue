@@ -9,6 +9,18 @@
             <template v-if="todoData.length">
                 <Item v-for="todo in todoData" :todoItem="todo"/>
             </template>
+
+            <hr>
+            <div>
+                getters 맵핑해서 뿌려보는 방식?
+            </div>
+            <template v-if="$route.params.path">
+                <Item v-for="todo in todoActiveItem" :todoItem="todo" v-if="$route.params.path == 'list-active'"/>
+                <Item v-for="todo in todoClearItem" :todoItem="todo" v-if="$route.params.path == 'list-clear'"/>
+            </template>
+            <template v-else>
+                <Item v-for="todo in todoItem" :todoItem="todo"/>
+            </template>
         </div>
     </div>
 </template>
@@ -18,9 +30,18 @@ import {Vue, Component, Watch} from 'vue-property-decorator';
 import Header from '@/components/todo/Header.vue';
 import ItemInput from '@/components/todo/ItemInput.vue';
 import Item from '@/components/todo/Item.vue';
+import { mapGetters } from 'vuex'; // vuex getters 를 편리하게 사용하게 해주는 헬퍼함수
 
 @Component({
     components: {ItemInput, Header, Item},
+    computed : {
+        // 전개연산자를 이용하여 추가.
+        ...mapGetters([
+            'todoItem',
+            'todoActiveItem',
+            'todoClearItem',
+        ]),
+    },
 })
 export default class TodoList extends Vue {
 
